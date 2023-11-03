@@ -24,7 +24,8 @@ double trapezoidal(double a, double b, double epsilon)
         n *= 2;
 
     } while (abs(integral_1 - integral_2) >= 3 * epsilon);
-
+    double R = (integral_1 - integral_2) / (pow(0.5, 2) - 1);
+    cout << "Computational error R = " << R << endl;
     return integral_1;
 }
 double simpson(double a, double b, double epsilon) 
@@ -48,6 +49,7 @@ double simpson(double a, double b, double epsilon)
         n *= 2;
 
     } while (abs(integral_1 - integral_2) >= 15 * epsilon);
-
+    double R = (integral_1 - integral_2) / (pow(0.5, 4) - 1);
+    cout << "Computational error R = " << R << endl;
     return integral_1;
 }
