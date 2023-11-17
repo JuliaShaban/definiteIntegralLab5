@@ -9,11 +9,12 @@ double trapezoidal(double a, double b, double epsilon)
     int n = 2;
     double integral_1 = 0.5 * (f(a) + f(b));
     double integral_2 = 0;
-   
-    while (abs(integral_1 - integral_2) > 3 * epsilon)
+    double integral = integral_1;
+
+    while (abs(integral - integral_2) > 3 * epsilon)
     {
 
-        integral_2 = integral_1;
+        integral_2 = integral;
         double h = (b - a) / n;
         double sum = 0.0;
 
@@ -22,13 +23,13 @@ double trapezoidal(double a, double b, double epsilon)
             sum += f(a + i * h);
         }
 
-        integral_1 = h * (integral_1 + sum);
+        integral = h * (integral_1 + sum);
         n *= 2;
     }
 
-    double R = (integral_1 - integral_2) / (pow(0.5, 2) - 1);
+    double R = (integral - integral_2) / (pow(0.5, 2) - 1);
     cout << "Computational error R = " << R << endl;
-    return integral_1;
+    return integral;
 }
 double simpson(double a, double b, double epsilon)
 {
@@ -83,7 +84,6 @@ double simpsonCubature(double a, double b, double c, double d, double epsilon)
         }
     }
     integral_1 *= hx * hy / 9;
-    k++;
  
     while (abs(integral_1 - integral_2) > 15 * epsilon)
     {
@@ -108,7 +108,6 @@ double simpsonCubature(double a, double b, double c, double d, double epsilon)
             }
         }
         integral_2 *= hx * hy / 9;
-        k++;
        
     }
     return integral_1;
