@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="calculationMethods.cpp" />
+    <ClCompile Include="Integral.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Integral.h" />
